@@ -1,0 +1,121 @@
+@layer utilities {
+  body.Home-2 {
+    --body-bg: hsl(0, 0%, 10%);
+    --body-text: hsl(0, 0%, 95%);
+    @apply relative bg-cover bg-fixed bg-no-repeat min-h-svh p-0 m-0
+      bg-gradient-to-b from-[--body-bg] from-10% to-black to-50% text-[--body-text]
+      scroll-smooth overflow-clip w-screen;
+
+    .MainMenu {
+      @apply relative h-12 xl:h-24;
+      .Logo {
+        @apply relative z-10 flex w-full items-center justify-center bg-black h-12
+        xl:px-5 xl:h-24 xl:justify-start;
+        img {
+          @apply h-1/2;
+        }
+      }
+      .MenuButton {
+        @apply absolute z-10 top-0 right-3 h-full transition-transform duration-500
+          xl:hidden;
+      }
+      .MenuNav {
+        @apply absolute z-0 -translate-y-full -mt-1 top-0 transition-transform duration-500 h-screen w-full
+          flex flex-col justify-start bg-white text-black
+          xl:translate-y-0 xl:z-10 xl:mt-0 xl:flex-row xl:h-full xl:justify-center xl:items-center xl:gap-5
+          xl:bg-transparent xl:text-white;
+          a {
+            @apply px-3 py-3 text-xl;
+            &:hover {
+              @apply bg-black text-white;
+            }
+          }
+      }
+      &.open {
+        .MenuNav {
+          @apply mt-0 translate-y-0 top-0 pt-14 h-screen;
+        }
+      }
+    }
+    .Wrapper {
+      @apply snap-y snap-mandatory h-svh overflow-y-auto;
+    }
+    .Section {
+      @apply relative snap-start h-screen overflow-hidden
+        flex flex-col justify-between gap-0;
+    }
+    .MainGrid {
+      @apply relative z-0 bg-cover bg-center
+      before:absolute before:content-[''] before:-z-10 before:inset-0 before:backdrop-blur-lg before:bg-white/10;
+      /*@apply relative bg-center bg-cover before:absolute before:content-['']
+      before:-z-10 before:inset-0 before:backdrop-blur-lg before:bg-white/10;*/
+    }
+    .MainFilter {
+      @apply relative z-0 flex flex-row gap-4 items-center justify-center py-5
+        xl:gap-6;
+      button {
+        @apply  flex items-center gap-1;
+        span {
+          @apply font-semibold  text-xl xl:text-3xl;
+        }
+        small {
+          @apply w-6 h-6 hidden place-content-center text-center rounded-full text-xs
+            xl:grid
+            bg-white text-black;
+        }
+        &.active, &:hover {
+          span {
+            @apply underline underline-offset-8 decoration-slate-400;
+          }
+        }
+      }
+    }
+    .MovieGrid {
+      @apply relative z-0 w-full flex gap-0 snap-x snap-mandatory overflow-x-auto;
+      div {
+        @apply snap-center shrink-0 w-0 p-0 m-0 xl:w-1/5;
+        &._gap_ {
+          @apply w-0 sm:w-1/2 xl:w-1/5
+        }
+      }
+      picture {
+        @apply snap-center p-2.5 aspect-poster shrink-0 w-full sm:w-1/2
+          xl:w-1/5 xl:transition-all xl:duration-300;
+
+        img {
+          @apply shrink-0 rounded-lg shadow-lg shadow-black xl:scale-90 xl:transition-transform xl:duration-300;
+          &.active {
+            @apply xl:scale-100;
+          }
+        }
+        &:hover {
+          img {
+            @apply xl:scale-100;
+          }
+        }
+      }
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .DirectionButtons {
+      @apply absolute bottom-28 w-full flex items-center justify-center gap-5;
+      button {
+        @apply w-10 h-10;
+        &:hover {
+          @apply rounded-full bg-black/50;
+        }
+      }
+    }
+    .SecondaryFilter {
+      @apply relative z-0 flex flex-row gap-4 items-center justify-center py-5 xl:gap-6;
+    }
+    .SmoothScroll {
+      @apply z-10 absolute left-0 w-full top-[25vh] bottom-0 pb-60 hidden flex-col items-center justify-end
+        xl:flex;
+    }
+  }
+
+}

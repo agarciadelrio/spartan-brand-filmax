@@ -1,0 +1,56 @@
+@layer components {
+  .Home {
+    .MainMenu {
+      @apply absolute w-full z-20 top-0;
+      .MenuLogo {
+        @apply absolute z-10 top-0 left-0 flex p-3 w-full h-24 bg-[--menu-main-bg];
+        img {
+          @apply bg-transparent;
+        }
+      }
+      .MenuItems {
+        @apply absolute z-0 flex flex-col items-start top-24 left-0 right-0 py-2.5
+          -translate-y-full duration-300 shadow-none
+          bg-[--menu-main-text]
+          xl:z-10 xl:flex-row xl:top-0 xl:h-24 xl:translate-y-0
+          xl:items-center xl:justify-center xl:gap-1
+          xl:bg-transparent
+        ;
+        &.open {
+          @apply translate-y-0 shadow;
+        }
+        .MenuItem {
+          @apply w-full px-3 py-2.5
+          text-[--menu-main-bg] text-xl
+          xl:w-auto xl:text-[--menu-main-text];
+          &:hover {
+            @apply bg-[--menu-main-bg] text-[--menu-main-accent];
+          }
+        }
+
+      }
+      .MenuMobile {
+        @apply absolute text-white top-4 right-3 z-20 block xl:hidden w-16 h-16 transition-transform;
+      }
+    }
+    .SecondaryMenu {
+      @apply absolute w-full z-10 top-24;
+      .MenuItems {
+        @apply absolute z-0 w-full gap-3 top-0 py-3 flex flex-col items-start justify-center
+        -translate-y-full duration-300 shadow-none
+        bg-[--menu-secondary-bg] text-[--menu-secondary-text]
+        xl:flex-row xl:items-center xl:translate-y-0 xl:h-16;
+        &.open {
+          @apply translate-y-full shadow top-8;
+        }
+        .MenuItem {
+          @apply text-xl w-full px-3 py-1.5
+            xl:w-auto;
+          &:hover {
+            @apply bg-[--menu-main-bg] text-[--menu-secondary-accent] xl:bg-transparent;
+          }
+        }
+      }
+    }
+  }
+}

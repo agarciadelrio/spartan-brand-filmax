@@ -1,0 +1,14 @@
+/*
+relative py-auto z-0 flex flex-col justify-center aspect-slider
+bg-black bg-cover before:absolute before:content-['*']
+before:-z-10 before:inset-0 before:backdrop-blur-lg before:bg-white/10
+*/
+.Home {
+  .MainGrid {
+    @apply relative z-0 mt-0 xl:mt-0 overflow-hidden py-10 bg-black bg-cover before:absolute before:content-['']
+    before:-z-10 before:inset-0 before:backdrop-blur-lg before:bg-white/10;
+    .Elements {
+      @apply h-full flex flex-col justify-evenly gap-12 md:gap-10 xl:gap-10;
+    }
+  }
+}
